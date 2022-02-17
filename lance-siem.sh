@@ -14,7 +14,7 @@ docker rm filebeat
 
 docker network create elasticsearch
 docker run -d --name elasticsearch \
---publish 9200:9200 --publish 9300:9300 --net elasticsearch \
+--publish 127.0.0.1:9200:9200 --publish 127.0.0.1:9300:9300 --net elasticsearch \
 --env discovery.type=single-node \
 --env xpack.security.authc.anonymous.authz_exception=true \
 --env xpack.security.authc.anonymous.username=anonymous_user \
