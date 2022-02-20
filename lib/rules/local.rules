@@ -1,0 +1,1 @@
+alert http any any -> any any (msg:"FILE exe detected"; filemagic:"executable for MS Windows"; filestore; sid:3; rev:1;)

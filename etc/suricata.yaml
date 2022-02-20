@@ -444,11 +444,12 @@ outputs:
   # prune" command which can delete files over a certain age.
   - file-store:
       version: 2
-      enabled: no
+      enabled: yes
+      force-magic: yes
 
       # Set the directory for the filestore. Relative pathnames
       # are contained within the "default-log-dir".
-      #dir: filestore
+      dir: /var/log/suricata/filestore
 
       # Write out a fileinfo record for each occurrence of a file.
       # Disabled by default as each occurrence is already logged
@@ -1873,6 +1874,7 @@ default-rule-path: /var/lib/suricata/rules
 
 rule-files:
   - suricata.rules
+  - local.rules
 
 ##
 ## Auxiliary configuration files.
