@@ -52,14 +52,14 @@ echo "lancement de Kibana"
 ###################################################################
 KIBANA_CONFIG_FILE=$(pwd)/config/kibana.yml
 KIBANA_CONFIG_TEMPLATE=$(pwd)/config/kibana.yml.template
-sudo cp $KIBANA_CONFIG_TEMPLATE $KIBANA_CONFIG_FILE
+cp $KIBANA_CONFIG_TEMPLATE $KIBANA_CONFIG_FILE
 printf "%s\n" "kibana file:  ${KIBANA_CONFIG_FILE}"
 
 ## Pour kibana il faut aussi renseigner le fichier de config avec le nouveau mot de passe
-sudo echo "elasticsearch.password: ${KIBANA_PASSWORD}" >> ${KIBANA_CONFIG_FILE}
+echo "elasticsearch.password: ${KIBANA_PASSWORD}" >> ${KIBANA_CONFIG_FILE}
 
 # supression d'un ^M dans le fichier config de Kibana
-sudo sed -i 's/\r//g' ${KIBANA_CONFIG_FILE}
+sed -i 's/\r//g' ${KIBANA_CONFIG_FILE}
 
 
 docker run   -d --name kibana --network=elasticsearch --volume='certs:/usr/share/kibana/config/certs' -v $(pwd)/config:/usr/share/kibana/config --publish=127.0.0.1:5601:5601 --env ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/kibana/config/certs/ca/ca.crt --env ELASTICSEARCH_HOSTS='https://es01:9200' --env ELASTICSEARCH_USERNAME=kibana_system  docker.elastic.co/kibana/kibana:8.0.0
@@ -91,7 +91,7 @@ sudo chown root.root filebeat.yml
 sudo chmod go-w filebeat.yml
 
 # d'abord setup
-docker run --user=root --name filebeat  --volume='certs:/usr/share/filebeats/config/certs'  --network=elasticsearch --volume="$(pwd)/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume='certs:/usr/share/filebeats/config/certs' --volume="$(pwd)/suricata.yml:/usr/share/filebeat/modules.d/suricata.yml:ro" --volume="$(pwd)/logs:/var/log/suricata" --env ELASTIC_USERNAME=beats_system --env ELASTIC_PASSWORD=${BEATS_PASSWORD}  docker.elastic.co/beats/filebeat:8.0.0 setup  -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts="https://es01:9200" -E output.elasticsearch.ssl.certificate_authorities=/usr/share/filebeats/config/certs/ca/ca.crt
+docker run --rm --user=root --volume='certs:/usr/share/filebeats/config/certs'  --network=elasticsearch --volume="$(pwd)/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume='certs:/usr/share/filebeats/config/certs' --volume="$(pwd)/suricata.yml:/usr/share/filebeat/modules.d/suricata.yml:ro" --volume="$(pwd)/logs:/var/log/suricata" --env ELASTIC_USERNAME=beats_system --env ELASTIC_PASSWORD=${BEATS_PASSWORD}  docker.elastic.co/beats/filebeat:8.0.0 filebeat setup  -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts="https://es01:9200" -E output.elasticsearch.ssl.certificate_authorities=/usr/share/filebeats/config/certs/ca/ca.crt
 
 # ensuite lancement en scrutation
 docker run --user=root  -d --name filebeat  --volume='certs:/usr/share/filebeats/config/certs'  --network=elasticsearch --volume="$(pwd)/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume='certs:/usr/share/filebeats/config/certs' --volume="$(pwd)/suricata.yml:/usr/share/filebeat/modules.d/suricata.yml:ro" --volume="$(pwd)/logs:/var/log/suricata" --env ELASTIC_USERNAME=beats_system --env ELASTIC_PASSWORD=${BEATS_PASSWORD}  docker.elastic.co/beats/filebeat:8.0.0 filebeat -e -strict.perms=false -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts="https://es01:9200" -E output.elasticsearch.ssl.certificate_authorities=/usr/share/filebeats/config/certs/ca/ca.crt
