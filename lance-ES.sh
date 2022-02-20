@@ -160,6 +160,10 @@ printf "MONITORING_PASSWORD=%q\n" "${MONITORING_PASSWORD}" >> ${PASSWORDS}
 
 curl --cacert http_ca.crt -u elastic:${ELASTIC_PASSWORD} https://localhost:9200
 
-cat .env
-cat ${KIBANA_CONFIG_FILE}
+# ajout du pass pour filebeat
+sed "s/ELASTIC_PASSWORD/${ELASTIC_PASSWORD}/g" filebeat.yml.template > filebeat.yml
+sed -i 's/\r//g' filebeat.yml
+
+#cat .env
+#cat ${KIBANA_CONFIG_FILE}
 sudo chown -R root.root $(pwd)/config

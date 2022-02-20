@@ -47,6 +47,7 @@ clean:
 	- rm -f .env
 	- rm -f ca.crt
 	- sudo rm -f config/kibana.yml
+	- sudo rm -f filebeat.yml
 	- rm -f passwords.txt
 
 cleansiem:

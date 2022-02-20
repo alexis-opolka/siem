@@ -760,9 +760,9 @@ filebeat.inputs:
   #ignore_older: 0
 
   # Ignore files that have not been updated since the selected event.
-  # ignore_inactive is disabled by default, so no files are ignored by setting it to ELASTIC_PASSWORD.
+  # ignore_inactive is disabled by default, so no files are ignored by setting it to "".
   # Available options: since_first_start, since_last_start.
-  #ignore_inactive: ELASTIC_PASSWORD
+  #ignore_inactive: ""
 
   # Defines the buffer size every harvester uses when fetching the file
   #harvester_buffer_size: 16384
@@ -1269,7 +1269,7 @@ filebeat.inputs:
 #      fields: ["field1", "field2", ...]
 #      process_array: false
 #      max_depth: 1
-#      target: ELASTIC_PASSWORD
+#      target: ""
 #      overwrite_keys: false
 #
 #processors:
@@ -1380,7 +1380,7 @@ filebeat.inputs:
   #index: "filebeat-%{[agent.version]}"
 
   # Optional ingest pipeline. By default no pipeline will be used.
-  #pipeline: ELASTIC_PASSWORD
+  #pipeline: ""
 
   # Optional HTTP path
   #path: "/elasticsearch"
@@ -1475,14 +1475,14 @@ filebeat.inputs:
   # this allow you to ensure that a specific certificate is used to validate the chain of trust.
   #
   # The pin is a base64 encoded string of the SHA-256 fingerprint.
-  #ssl.ca_sha256: ELASTIC_PASSWORD
+  #ssl.ca_sha256: ""
 
   # A root CA HEX encoded fingerprint. During the SSL handshake if the
   # fingerprint matches the root CA certificate, it will be added to
   # the provided list of root CAs (`certificate_authorities`), if the
   # list is empty or not defined, the matching certificate will be the
   # only one in the list. Then the normal SSL validation happens.
-  #ssl.ca_trusted_fingerprint: ELASTIC_PASSWORD
+  #ssl.ca_trusted_fingerprint: ""
 
   # Enable Kerberos support. Kerberos is automatically enabled if any Kerberos setting is set.
   #kerberos.enabled: true
@@ -1614,14 +1614,14 @@ filebeat.inputs:
   # this allow you to ensure that a specific certificate is used to validate the chain of trust.
   #
   # The pin is a base64 encoded string of the SHA-256 fingerprint.
-  #ssl.ca_sha256: ELASTIC_PASSWORD
+  #ssl.ca_sha256: ""
 
   # A root CA HEX encoded fingerprint. During the SSL handshake if the
   # fingerprint matches the root CA certificate, it will be added to
   # the provided list of root CAs (`certificate_authorities`), if the
   # list is empty or not defined, the matching certificate will be the
   # only one in the list. Then the normal SSL validation happens.
-  #ssl.ca_trusted_fingerprint: ELASTIC_PASSWORD
+  #ssl.ca_trusted_fingerprint: ""
 
   # The number of times to retry publishing an event after a publishing failure.
   # After the specified number of retries, the events are typically dropped.
@@ -1822,14 +1822,14 @@ filebeat.inputs:
   # this allow you to ensure that a specific certificate is used to validate the chain of trust.
   #
   # The pin is a base64 encoded string of the SHA-256 fingerprint.
-  #ssl.ca_sha256: ELASTIC_PASSWORD
+  #ssl.ca_sha256: ""
 
   # A root CA HEX encoded fingerprint. During the SSL handshake if the
   # fingerprint matches the root CA certificate, it will be added to
   # the provided list of root CAs (`certificate_authorities`), if the
   # list is empty or not defined, the matching certificate will be the
   # only one in the list. Then the normal SSL validation happens.
-  #ssl.ca_trusted_fingerprint: ELASTIC_PASSWORD
+  #ssl.ca_trusted_fingerprint: ""
 
   # Enable Kerberos support. Kerberos is automatically enabled if any Kerberos setting is set.
   #kerberos.enabled: true
@@ -1993,14 +1993,14 @@ filebeat.inputs:
   # this allow you to ensure that a specific certificate is used to validate the chain of trust.
   #
   # The pin is a base64 encoded string of the SHA-256 fingerprint.
-  #ssl.ca_sha256: ELASTIC_PASSWORD
+  #ssl.ca_sha256: ""
 
   # A root CA HEX encoded fingerprint. During the SSL handshake if the
   # fingerprint matches the root CA certificate, it will be added to
   # the provided list of root CAs (`certificate_authorities`), if the
   # list is empty or not defined, the matching certificate will be the
   # only one in the list. Then the normal SSL validation happens.
-  #ssl.ca_trusted_fingerprint: ELASTIC_PASSWORD
+  #ssl.ca_trusted_fingerprint: ""
 
 
 # -------------------------------- File Output ---------------------------------
@@ -2162,7 +2162,7 @@ filebeat.inputs:
 #setup.template.json.path: "${path.config}/template.json"
 
 # Name under which the template is stored in Elasticsearch
-#setup.template.json.name: ELASTIC_PASSWORD
+#setup.template.json.name: ""
 
 # Overwrite existing template
 # Do not enable this option for more than one instance of filebeat as it might
@@ -2226,10 +2226,10 @@ setup.kibana:
   #password: "changeme"
 
   # Optional HTTP path
-  #path: ELASTIC_PASSWORD
+  #path: ""
 
   # Optional Kibana space ID.
-  #space.id: ELASTIC_PASSWORD
+  #space.id: ""
 
   # Custom HTTP headers to add to each request
   #headers:
@@ -2286,14 +2286,14 @@ setup.kibana:
   # this allow you to ensure that a specific certificate is used to validate the chain of trust.
   #
   # The pin is a base64 encoded string of the SHA-256 fingerprint.
-  #ssl.ca_sha256: ELASTIC_PASSWORD
+  #ssl.ca_sha256: ""
 
   # A root CA HEX encoded fingerprint. During the SSL handshake if the
   # fingerprint matches the root CA certificate, it will be added to
   # the provided list of root CAs (`certificate_authorities`), if the
   # list is empty or not defined, the matching certificate will be the
   # only one in the list. Then the normal SSL validation happens.
-  #ssl.ca_trusted_fingerprint: ELASTIC_PASSWORD
+  #ssl.ca_trusted_fingerprint: ""
 
 
 # ================================== Logging ===================================
@@ -2491,14 +2491,14 @@ logging.files:
   # this allow you to ensure that a specific certificate is used to validate the chain of trust.
   #
   # The pin is a base64 encoded string of the SHA-256 fingerprint.
-  #ssl.ca_sha256: ELASTIC_PASSWORD
+  #ssl.ca_sha256: ""
 
   # A root CA HEX encoded fingerprint. During the SSL handshake if the
   # fingerprint matches the root CA certificate, it will be added to
   # the provided list of root CAs (`certificate_authorities`), if the
   # list is empty or not defined, the matching certificate will be the
   # only one in the list. Then the normal SSL validation happens.
-  #ssl.ca_trusted_fingerprint: ELASTIC_PASSWORD
+  #ssl.ca_trusted_fingerprint: ""
 
   # Enable Kerberos support. Kerberos is automatically enabled if any Kerberos setting is set.
   #kerberos.enabled: true
@@ -2574,7 +2574,7 @@ logging.files:
     #enabled: false
 
     # Environment in which filebeat is running on (eg: staging, production, etc.)
-    #environment: ELASTIC_PASSWORD
+    #environment: ""
 
     # APM Server hosts to report instrumentation results to.
     #hosts:
