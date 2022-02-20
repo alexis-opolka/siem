@@ -158,11 +158,13 @@ printf "MONITORING_PASSWORD=%q\n" "${MONITORING_PASSWORD}" >> ${PASSWORDS}
 #echo  "enrollment kibana token ${TOKEN}" 
 #printf "KIBANA_TOKEN=${KIBANA_TOKEN}\n" >> ${PASSWORDS}
 
-curl --cacert http_ca.crt -u elastic:${ELASTIC_PASSWORD} https://localhost:9200
+curl --cacert ca.crt -u elastic:${ELASTIC_PASSWORD} https://localhost:9200
 
 # ajout du pass pour filebeat
 sed "s/ELASTIC_PASSWORD/${ELASTIC_PASSWORD}/g" filebeat.yml.template > filebeat.yml
 sed -i 's/\r//g' filebeat.yml
+sudo chown root.root filebeat.yml
+sudo chmod go-w filebeat.yml
 
 #cat .env
 #cat ${KIBANA_CONFIG_FILE}

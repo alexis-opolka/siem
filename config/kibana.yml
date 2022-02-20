@@ -8,4 +8,3 @@ xpack.encryptedSavedObjects.encryptionKey: 262e15dac73c1a3ae153f311bf2d0892
 xpack.reporting.encryptionKey: 1c0693f7f19e5be23a534ae1f2a17fe1
 xpack.security.encryptionKey: ca9b5ef4bc35f7cc53cfe8c35bb16bc8
 elasticsearch.username: "kibana_system"
-elasticsearch.password: sBEl_TxISMbUhTNH0h--
