@@ -15,7 +15,7 @@ filebeat.config:
     reload.period: 15s
 
 output.elasticsearch:
-  hosts: ["https://elasticsearch:9200"]
+  hosts: ["https://es01:9200"]
   username: "elastic" #(si pas de login/mot de passe ne rien mettre)
   password: "ELASTIC_PASSWORD" #(si pas de login/mot de passe ne rien mettre)
 
@@ -889,7 +889,7 @@ filebeat.inputs:
 
   # SSL configuration. By default is off.
   # List of root certificates for client verifications
-  ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
+  #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
 
   # Certificate for SSL server authentication.
   #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -950,7 +950,7 @@ filebeat.inputs:
 
     # SSL configuration. By default is off.
     # List of root certificates for client verifications
-    #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+    #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
 
     # Certificate for SSL server authentication.
     #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -1450,7 +1450,7 @@ filebeat.inputs:
   #ssl.supported_protocols: [TLSv1.1, TLSv1.2, TLSv1.3]
 
   # List of root certificates for HTTPS server verifications
-  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
 
   # Certificate for SSL client authentication
   #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -1589,7 +1589,7 @@ filebeat.inputs:
   #ssl.supported_protocols: [TLSv1.1, TLSv1.2, TLSv1.3]
 
   # List of root certificates for HTTPS server verifications
-  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
 
   # Certificate for SSL client authentication
   #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -1797,7 +1797,8 @@ filebeat.inputs:
   #ssl.supported_protocols: [TLSv1.1, TLSv1.2, TLSv1.3]
 
   # List of root certificates for HTTPS server verifications
-  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
+
 
   # Certificate for SSL client authentication
   #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -1968,7 +1969,7 @@ filebeat.inputs:
   #ssl.supported_protocols: [TLSv1.1, TLSv1.2, TLSv1.3]
 
   # List of root certificates for HTTPS server verifications
-  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
 
   # Certificate for SSL client authentication
   #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -2261,7 +2262,7 @@ setup.kibana:
   #ssl.supported_protocols: [TLSv1.1, TLSv1.2, TLSv1.3]
 
   # List of root certificates for HTTPS server verifications
-  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
 
   # Certificate for SSL client authentication
   #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -2466,7 +2467,7 @@ logging.files:
   #ssl.supported_protocols: [TLSv1.1, TLSv1.2, TLSv1.3]
 
   # List of root certificates for HTTPS server verifications
-  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  #ssl.certificate_authorities: ["/usr/share/filebeats/config/certs/ca/ca.crt"]
 
   # Certificate for SSL client authentication
   #ssl.certificate: "/etc/pki/client/cert.pem"
@@ -2606,3 +2607,12 @@ logging.files:
 # This allows to enable 6.7 migration aliases
 #migration.6_to_7.enabled: false
 
+
+- module: suricata
+  # All logs
+  eve:
+    enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    var.paths: [/var/log/suricata/eve.json]

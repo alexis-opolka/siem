@@ -1,3 +1,4 @@
+#! /bin/bash
 . $(pwd)/passwords.txt
 echo  "password elastic= ${ELASTIC_PASSWORD}"
 echo  "password kibana= ${KIBANA_PASSWORD}"

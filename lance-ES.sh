@@ -12,8 +12,6 @@ make clean
 docker network create elasticsearch
 CLUSTER_NAME=HandOn
 CERTS_DIR=/usr/share/elasticsearch/config/certificates
-KIBANA_CONFIG_FILE=$(pwd)/config/kibana.yml
-printf "%s\n" "kibana file:  ${KIBANA_CONFIG_FILE}"
 PASSWORDS='passwords.txt'
 
 docker volume create elasticdata
@@ -26,7 +24,6 @@ docker volume create certs
 
 cp env.template .env
 sudo chown -R $(id -u).$(id -g) $(pwd)/config
-cp kibana.yml.template $KIBANA_CONFIG_FILE
 
 # recup des interfaces pour la conf de suricata
 find /sys/class/net -mindepth 1 -maxdepth 1 -lname '*virtual*' -prune -o -printf '%f\n'
@@ -133,10 +130,6 @@ KIBANA_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-
 echo  "password kibana_system ${KIBANA_PASSWORD}" 
 printf  "KIBANA_PASSWORD=%q\n" "${KIBANA_PASSWORD}" >> .env
 printf  "KIBANA_PASSWORD=%q\n" "${KIBANA_PASSWORD}" >> ${PASSWORDS}
-echo "elasticsearch.password: ${KIBANA_PASSWORD}" >> ${KIBANA_CONFIG_FILE}
-
-# supression d'un ^M dans le fichier config de Kibana
-sed -i 's/\r//g' ${KIBANA_CONFIG_FILE}
 
 BEATS_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u beats_system -s -b')
 echo  "password beats ${BEATS_PASSWORD}" 
@@ -146,7 +139,7 @@ printf "BEATS_PASSWORD=%q\n" "${BEATS_PASSWORD}" >> ${PASSWORDS}
 APM_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u apm_system -s -b')
 echo  "password apm ${BEATS_PASSWORD}" 
 printf "APM_PASSWORD=%q\n" "${APM_PASSWORD}" >> .env
-printf "APM_PASSWORD=%s\n" "${APM_PASSWORD}" >> ${PASSWORDS}
+printf "APM_PASSWORD=%q\n" "${APM_PASSWORD}" >> ${PASSWORDS}
 
 MONITORING_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u remote_monitoring_user -s -b')
 echo  "password monitoring ${MONITORING_PASSWORD}" 
@@ -158,13 +151,9 @@ printf "MONITORING_PASSWORD=%q\n" "${MONITORING_PASSWORD}" >> ${PASSWORDS}
 #echo  "enrollment kibana token ${TOKEN}" 
 #printf "KIBANA_TOKEN=${KIBANA_TOKEN}\n" >> ${PASSWORDS}
 
-curl --cacert ca.crt -u elastic:${ELASTIC_PASSWORD} https://localhost:9200
+echo "test de ES"
+make curlES
 
-# ajout du pass pour filebeat
-sed "s/ELASTIC_PASSWORD/${ELASTIC_PASSWORD}/g" filebeat.yml.template > filebeat.yml
-sed -i 's/\r//g' filebeat.yml
-sudo chown root.root filebeat.yml
-sudo chmod go-w filebeat.yml
 
 #cat .env
 #cat ${KIBANA_CONFIG_FILE}
