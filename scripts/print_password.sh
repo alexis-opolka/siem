@@ -1,5 +1,8 @@
 #! /bin/bash
-. $(pwd)/passwords.txt
+SECRETS_DIR=$(pwd)/secrets
+PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
+. ${PASSWORDS_FILE}
+
 echo  "password elastic= ${ELASTIC_PASSWORD}"
 echo  "password kibana= ${KIBANA_PASSWORD}"
 echo  "password beats_system= ${BEATS_PASSWORD}"

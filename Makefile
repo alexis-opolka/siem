@@ -2,7 +2,18 @@
 # This will output the help for each task
 # thanks to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .PHONY: help
-SHELL = /bin/bash
+SHELL := /bin/bash
+
+TEMPLATE_DIR:=${PWD}/templates
+SCRIPTS_DIR:=${PWD}/scripts
+TEMP_DIR=${PWD}/temp
+CA_FILE=${TEMP_DIR}/ca.crt
+SECRETS_DIR=${PWD}/secrets
+CONFIG_DIR=${PWD}/config
+PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
+ENV_FILE=${PWD}/.env
+
+
 
 CURRENT_UID := $(shell id -u)
 CURRENT_GID := $(shell id -g)
@@ -13,9 +24,9 @@ export CURRENT_GID
 .DEFAULT_GOAL := help
 
 es:
-	${PWD}/lance-ES.sh
+	${SCRIPTS_DIR}/lance-ES.sh
 siem:
-	${PWD}/lance-siem.sh
+	${SCRIPTS_DIR}/lance-siem.sh
 
 help:
 	@echo "---------------HELP-----------------"
@@ -43,7 +54,7 @@ help:
 	@echo "------------------------------------"
 
 curlES:
-	- ${PWD}/testES.sh
+	- ${SCRIPTS_DIR}/testES.sh
 
 clean:
 	- docker stop suricata && docker rm suricata
@@ -54,13 +65,15 @@ clean:
 	- docker stop filebeat && docker rm filebeat
 	- docker stop zeek && docker rm zeek
 	- docker network rm elasticsearch
+	- docker volume rm elasticdata
+	- docker volume rm elasticonfig
+	- docker volume rm certs
 	- docker system prune -f
 	- docker volume prune -f
-	- rm -f .env
-	- rm -f ca.crt
-	- sudo rm -f config/kibana.yml
-	- sudo rm -f filebeat.yml
-	- rm -f passwords.txt
+	- sudo rm -f "${TEMP_DIR}"/*
+	- sudo rm -f "${CONFIG_DIR}"/*.yml
+	- sudo rm -f "${CONFIG_DIR}"/pipeline/*.yml
+	- sudo rm -f ${SECRETS_DIR}/*
 	- sudo chown -R ${CURRENT_UID}.${CURRENT_GID} ${PWD}
 
 cleansiem:
@@ -70,10 +83,13 @@ cleansiem:
 	- docker stop evebox && docker rm evebox
 	- docker stop filebeat && docker rm filebeat
 	- docker stop zeek && docker rm zeek
+	- docker system prune -f
 	- sudo rm -f config/kibana.yml
+	- sudo rm -f "${CONFIG_DIR}"/*.yml
+	- sudo rm -f "${CONFIG_DIR}"/pipeline/*.yml
 	- sudo chown -R ${CURRENT_UID}.${CURRENT_GID} ${PWD}
 
 pass: 
-	${PWD}/print_password.sh
+	${SCRIPTS_DIR}/print_password.sh
 
 all: clean es siem pass

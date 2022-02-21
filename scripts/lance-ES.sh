@@ -8,32 +8,40 @@ fi
 
 # nettoyage
 make clean
+
 #creation network et volumes 
 docker network create elasticsearch
-CLUSTER_NAME=HandOn
-CERTS_DIR=/usr/share/elasticsearch/config/certificates
-PASSWORDS='passwords.txt'
-
 docker volume create elasticdata
 docker volume create elasticonfig
 docker volume create certs
+
+# variables 
+CLUSTER_NAME="HandOnPackets"
+TEMPLATE_DIR=$(pwd)/templates
+TEMP_DIR=$(pwd)/temp
+CA_FILE=${TEMP_DIR}/ca.crt
+SECRETS_DIR=$(pwd)/secrets
+CONFIG_DIR=$(pwd)/config
+PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
+ENV_FILE=$(pwd)/.env
+
+#CERTS_DIR=/usr/share/elasticsearch/config/certificates
+
 
 # création des fichiers sans les mots de passes
 # avec la version 8.0 de kibana le mot de passe du compte kibana_system est ignoré en tant que variable d'environnement, il faut 
 # mettre le mot de passe généré dans le fichier config/kibana.yml d'ou le besoin d'un template propre
 
-cp env.template .env
-sudo chown -R $(id -u).$(id -g) $(pwd)/config
+cp ${TEMPLATE_DIR}/env.template "${ENV_FILE}"
 
-# recup des interfaces pour la conf de suricata
-find /sys/class/net -mindepth 1 -maxdepth 1 -lname '*virtual*' -prune -o -printf '%f\n'
+
 
 ###############################################################
-# ce premier container éphémère crée le certificats auto-signés
+# ce premier container éphémère crée les certificats auto-signés
 # on prend un mot de passe par default qui sera changé ensuite
 ###############################################################
 
-docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=changeme --volume='elasticonfig:/usr/share/elasticsearch/config' --volume='certs:/usr/share/elasticsearch/config/certs' --user root docker.elastic.co/elasticsearch/elasticsearch:8.0.0  bash -c 'mkdir -p /usr/share/elasticsearch/config/certs/ca;  
+docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=changeme --volume='certs:/usr/share/elasticsearch/config/certs' --user root docker.elastic.co/elasticsearch/elasticsearch:8.0.0  bash -c 'mkdir -p /usr/share/elasticsearch/config/certs/ca;
          if [ x${ELASTIC_PASSWORD} == x ]; then
           echo "Set the ELASTIC_PASSWORD environment variable in the .env file";
           exit 1;
@@ -79,14 +87,14 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
         find . -type d -exec chmod 750 \{\} \;;
         find . -type f -exec chmod 640 \{\} \;;
         echo "All done!";exit 0
-      ' 
+      '
 
 # création de l'instance es01 avec le volume contenant les certificats précédents 
 
-docker run  -d  --name es01 \
+docker run --rm -d  --name es01 \
 --env cluster.name=${CLUSTER_NAME}  \
 --env discovery.type=single-node \
---env ELASTIC_PASSWORD=${ELASTIC_PASSWORD} \
+--env ELASTIC_PASSWORD=changeme \
 --env bootstrap.memory_lock=true \
 --env xpack.security.enabled=true \
 --env xpack.security.http.ssl.enabled=true \
@@ -108,53 +116,50 @@ docker run  -d  --name es01 \
 --publish 127.0.0.1:9200:9200 --publish 127.0.0.1:9300:9300 --net elasticsearch \
 docker.elastic.co/elasticsearch/elasticsearch:8.0.0
 
-# On récupére la CA pour faire des curl
-docker cp es01:/usr/share/elasticsearch/config/certs/ca/ca.crt .
+# On récupére la CA pour faire des curl avec la CA générée par le container éphémère
+
+echo "${CA_FILE}"
+docker cp es01:/usr/share/elasticsearch/config/certs/ca/ca.crt "${CA_FILE}"
 
 # ES met un peu de temps à être accessible
 echo "Attente ES up...";
-until curl -s --cacert ca.crt https://localhost:9200 2>&1 | grep -q "missing authentication credentials"; do sleep 10; done;
+export ELASTIC_PASSWORD='changeme'
+until make curlES 2<&1 |grep -q 'You Know, for Search';do sleep 10; done;
 
-printf "génération des password pour les systèmes et sauvegarde dans .env (pour docker-compose) et ${PASSWORDS} (pour docker run)\n"
+
+printf "génération des password pour les systèmes et sauvegarde dans  (pour docker-compose) et ${PASSWORDS_FILE} (pour docker run)\n"
 
 # Création de tous les mots de passes systèmes standard de ES et récupération pour dans une second temps permettent à la stack elastic et plus 
 # de s'y connecter
 
 ELASTIC_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u elastic -s -b')
 echo  "password elastic ${ELASTIC_PASSWORD}" 
-printf "ELASTIC_PASSWORD=%q\n" "${ELASTIC_PASSWORD}" >> .env
-printf "ELASTIC_PASSWORD=%q\n" "${ELASTIC_PASSWORD}" >>  ${PASSWORDS}
+printf "ELASTIC_PASSWORD=%q\n" "${ELASTIC_PASSWORD}" >> "${ENV_FILE}"
+printf "ELASTIC_PASSWORD=%q\n" "${ELASTIC_PASSWORD}" >> "${PASSWORDS_FILE}"
 
 ## Pour kibana il faut aussi renseigner le fichier de config avec le nouveau mot de passe
 KIBANA_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u kibana_system -s -b')
 echo  "password kibana_system ${KIBANA_PASSWORD}" 
-printf  "KIBANA_PASSWORD=%q\n" "${KIBANA_PASSWORD}" >> .env
-printf  "KIBANA_PASSWORD=%q\n" "${KIBANA_PASSWORD}" >> ${PASSWORDS}
+printf  "KIBANA_PASSWORD=%q\n" "${KIBANA_PASSWORD}" >> "${ENV_FILE}"
+printf  "KIBANA_PASSWORD=%q\n" "${KIBANA_PASSWORD}" >> "${PASSWORDS_FILE}"
 
 BEATS_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u beats_system -s -b')
 echo  "password beats ${BEATS_PASSWORD}" 
-printf "BEATS_PASSWORD=%q\n" "${BEATS_PASSWORD}" >> .env
-printf "BEATS_PASSWORD=%q\n" "${BEATS_PASSWORD}" >> ${PASSWORDS}
+printf "BEATS_PASSWORD=%q\n" "${BEATS_PASSWORD}" >> "${ENV_FILE}"
+printf "BEATS_PASSWORD=%q\n" "${BEATS_PASSWORD}" >> "${PASSWORDS_FILE}"
 
 APM_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u apm_system -s -b')
 echo  "password apm ${BEATS_PASSWORD}" 
-printf "APM_PASSWORD=%q\n" "${APM_PASSWORD}" >> .env
-printf "APM_PASSWORD=%q\n" "${APM_PASSWORD}" >> ${PASSWORDS}
+printf "APM_PASSWORD=%q\n" "${APM_PASSWORD}" >> "${ENV_FILE}"
+printf "APM_PASSWORD=%q\n" "${APM_PASSWORD}" >> "${PASSWORDS_FILE}"
 
 MONITORING_PASSWORD=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-reset-password  -u remote_monitoring_user -s -b')
 echo  "password monitoring ${MONITORING_PASSWORD}" 
-printf "MONITORING_PASSWORD=%q\n" "${MONITORING_PASSWORD}" >> .env
-printf "MONITORING_PASSWORD=%q\n" "${MONITORING_PASSWORD}" >> ${PASSWORDS}
-
-
-#KIBANA_TOKEN=$(docker exec --user root -it es01 bash -c './bin/elasticsearch-create-enrollment-token -s kibana  -b')
-#echo  "enrollment kibana token ${TOKEN}" 
-#printf "KIBANA_TOKEN=${KIBANA_TOKEN}\n" >> ${PASSWORDS}
+printf "MONITORING_PASSWORD=%q\n" "${MONITORING_PASSWORD}" >> "${ENV_FILE}"
+printf "MONITORING_PASSWORD=%q\n" "${MONITORING_PASSWORD}" >> "${PASSWORDS_FILE}"
 
 echo "test de ES"
 make curlES
 
 
-#cat .env
-#cat ${KIBANA_CONFIG_FILE}
-sudo chown -R root.root $(pwd)/config
+#sudo chown -R root.root $(pwd)/config
