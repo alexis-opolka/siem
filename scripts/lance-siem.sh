@@ -11,13 +11,13 @@ PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ETC_DIR=$PARENT_DIR/etc
 LOGS_DIR=$PARENT_DIR/logs
 
-echo $TEMP_DIR
-echo $CA_FILE
-echo $SECRETS_DIR
-echo $CONFIG_DIR
-echo $ETC_DIR
-echo $LOGS_DIR
-echo $PASSWORDS_FILE
+echo "TEMP_DIR $TEMP_DIR"
+echo "CA_FILE $CA_FILE"
+echo "SECRETS_DIR $SECRETS_DIR"
+echo "CONFIG_DIR $CONFIG_DIR"
+echo "ETC_DIR $ETC_DIR"
+echo "LOGS_DIR $LOGS_DIR"
+echo "PASSWORDS_FILE $PASSWORDS_FILE"
 
 
 #CERTS_DIR=/usr/share/elasticsearch/config/certificates
@@ -26,6 +26,7 @@ make cleansiem
 
 echo "récupération des mots de passes dans les variables depuis passwords.txt"
 source ${PASSWORDS_FILE}
+cd .. && make pass && cd -
 
 ####################################################################################################
 echo "run de l'image suricata (Alma 8 redhat like) voir https://github.com/jasonish/docker-suricata"
