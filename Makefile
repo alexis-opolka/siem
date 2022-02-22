@@ -74,6 +74,7 @@ clean:
 	- sudo rm -f "${CONFIG_DIR}"/*.yml
 	- sudo rm -f "${CONFIG_DIR}"/pipeline/*.yml
 	- sudo rm -f ${SECRETS_DIR}/*
+	- rm -f ${PWD}/.env
 	- sudo chown -R ${CURRENT_UID}.${CURRENT_GID} ${PWD}
 
 cleansiem:

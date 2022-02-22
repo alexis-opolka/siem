@@ -1,0 +1,996 @@
+21/2/2022 -- 23:43:55 - <Notice> - This is Suricata version 6.0.4 RELEASE running in SYSTEM mode
+21/2/2022 -- 23:43:55 - <Info> - CPUs/cores online: 8
+21/2/2022 -- 23:43:55 - <Config> - 'default' server has 'request-body-minimal-inspect-size' set to 33820 and 'request-body-inspect-window' set to 4041 after randomization.
+21/2/2022 -- 23:43:55 - <Config> - 'default' server has 'response-body-minimal-inspect-size' set to 41421 and 'response-body-inspect-window' set to 16165 after randomization.
+21/2/2022 -- 23:43:55 - <Config> - SMB stream depth: 0
+21/2/2022 -- 23:43:55 - <Config> - Protocol detection and parser disabled for modbus protocol.
+21/2/2022 -- 23:43:55 - <Config> - Protocol detection and parser disabled for enip protocol.
+21/2/2022 -- 23:43:55 - <Config> - Protocol detection and parser disabled for DNP3.
+21/2/2022 -- 23:43:55 - <Info> - Found an MTU of 1500 for 'enp12s0'
+21/2/2022 -- 23:43:55 - <Info> - Found an MTU of 1500 for 'enp12s0'
+21/2/2022 -- 23:43:55 - <Info> - Found an MTU of 1500 for 'wlp2s0'
+21/2/2022 -- 23:43:55 - <Info> - Found an MTU of 1500 for 'wlp2s0'
+21/2/2022 -- 23:43:55 - <Info> - Found an MTU of 1500 for 'enp0s31f6'
+21/2/2022 -- 23:43:55 - <Info> - Found an MTU of 1500 for 'enp0s31f6'
+21/2/2022 -- 23:43:55 - <Config> - allocated 262144 bytes of memory for the host hash... 4096 buckets of size 64
+21/2/2022 -- 23:43:55 - <Config> - preallocated 1000 hosts of size 136
+21/2/2022 -- 23:43:55 - <Config> - host memory usage: 398144 bytes, maximum: 33554432
+21/2/2022 -- 23:43:55 - <Config> - Core dump size is unlimited.
+21/2/2022 -- 23:43:55 - <Config> - allocated 3670016 bytes of memory for the defrag hash... 65536 buckets of size 56
+21/2/2022 -- 23:43:55 - <Config> - preallocated 65535 defrag trackers of size 160
+21/2/2022 -- 23:43:55 - <Config> - defrag memory usage: 14155616 bytes, maximum: 33554432
+21/2/2022 -- 23:43:55 - <Config> - flow size 320, memcap allows for 419430 flows. Per hash row in perfect conditions 6
+21/2/2022 -- 23:43:55 - <Config> - stream "prealloc-sessions": 2048 (per thread)
+21/2/2022 -- 23:43:55 - <Config> - stream "memcap": 67108864
+21/2/2022 -- 23:43:55 - <Config> - stream "midstream" session pickups: disabled
+21/2/2022 -- 23:43:55 - <Config> - stream "async-oneside": disabled
+21/2/2022 -- 23:43:55 - <Config> - stream "checksum-validation": enabled
+21/2/2022 -- 23:43:55 - <Config> - stream."inline": disabled
+21/2/2022 -- 23:43:55 - <Config> - stream "bypass": disabled
+21/2/2022 -- 23:43:55 - <Config> - stream "max-synack-queued": 5
+21/2/2022 -- 23:43:55 - <Config> - stream.reassembly "memcap": 268435456
+21/2/2022 -- 23:43:55 - <Config> - stream.reassembly "depth": 1048576
+21/2/2022 -- 23:43:55 - <Config> - stream.reassembly "toserver-chunk-size": 2443
+21/2/2022 -- 23:43:55 - <Config> - stream.reassembly "toclient-chunk-size": 2566
+21/2/2022 -- 23:43:55 - <Config> - stream.reassembly.raw: enabled
+21/2/2022 -- 23:43:55 - <Config> - stream.reassembly "segment-prealloc": 2048
+21/2/2022 -- 23:43:55 - <Info> - dropped the caps for main thread
+21/2/2022 -- 23:43:55 - <Info> - fast output device (regular) initialized: fast.log
+21/2/2022 -- 23:43:55 - <Info> - eve-log output device (regular) initialized: eve.json
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'alert'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'anomaly'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'http'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'dns'
+21/2/2022 -- 23:43:55 - <Config> - eve-log dns version not set, defaulting to version 2
+21/2/2022 -- 23:43:55 - <Config> - eve-log dns version not set, defaulting to version 2
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'tls'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'files'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'smtp'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'ftp'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'rdp'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'nfs'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'smb'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'tftp'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'ikev2'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'dcerpc'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'krb5'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'snmp'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'rfb'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'sip'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'dhcp'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'ssh'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'mqtt'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'stats'
+21/2/2022 -- 23:43:55 - <Config> - enabling 'eve-log' module 'flow'
+21/2/2022 -- 23:43:55 - <Info> - stats output device (regular) initialized: stats.log
+21/2/2022 -- 23:43:55 - <Config> - Delayed detect disabled
+21/2/2022 -- 23:43:55 - <Info> - Running in live mode, activating unix socket
+21/2/2022 -- 23:43:55 - <Config> - pattern matchers: MPM: hs, SPM: hs
+21/2/2022 -- 23:43:55 - <Config> - grouping: tcp-whitelist (default) 53, 80, 139, 443, 445, 1433, 3306, 3389, 6666, 6667, 8080
+21/2/2022 -- 23:43:55 - <Config> - grouping: udp-whitelist (default) 53, 135, 5060
+21/2/2022 -- 23:43:55 - <Config> - prefilter engines: MPM
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_uri
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_uri
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_uri
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_uri
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_request_line
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_client_body
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_response_line
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_accept
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_accept
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_accept_enc
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_accept_enc
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_accept_lang
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_accept_lang
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_referer
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_referer
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_connection
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_connection
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http.server
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http.server
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http.location
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http.location
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_protocol
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_protocol
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_start
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_start
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_method
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_method
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_user_agent
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_user_agent
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_host
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_host
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_host
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_raw_host
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_stat_msg
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_stat_code
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http_stat_code
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http2_header_name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http2_header_name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http2_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for http2_header
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for dns_query
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for dnp3_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for dnp3_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for tls.sni
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for tls.cert_issuer
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for tls.cert_subject
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for tls.cert_serial
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for tls.cert_fingerprint
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for tls.certs
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ja3.hash
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ja3.string
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ja3s.hash
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ja3s.string
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for smb_named_pipe
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for smb_share
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh.proto
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh.proto
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh_software
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh_software
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh.hassh
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh.hassh.server
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh.hassh.string
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ssh.hassh.server.string
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for krb5_cname
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for krb5_sname
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.method
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.uri
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.protocol
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.protocol
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.method
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.stat_msg
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.request_line
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for sip.response_line
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for rfb.name
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for snmp.community
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for snmp.community
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.connect.clientid
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.connect.username
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.connect.password
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.connect.willtopic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.connect.willmessage
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.publish.topic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.publish.message
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.subscribe.topic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for mqtt.unsubscribe.topic
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for icmpv4.hdr
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for tcp.hdr
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for udp.hdr
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for icmpv6.hdr
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ipv4.hdr
+21/2/2022 -- 23:43:55 - <Perf> - using shared mpm ctx' for ipv6.hdr
+21/2/2022 -- 23:43:55 - <Config> - IP reputation disabled
+21/2/2022 -- 23:43:55 - <Config> - Loading rule file: /var/lib/suricata/rules/suricata.rules
+21/2/2022 -- 23:44:01 - <Info> - 1 rule files processed. 24568 rules successfully loaded, 0 rules failed
+21/2/2022 -- 23:44:01 - <Info> - Threshold config parsed: 0 rule(s) found
+21/2/2022 -- 23:44:01 - <Perf> - using shared mpm ctx' for tcp-packet
+21/2/2022 -- 23:44:01 - <Perf> - using shared mpm ctx' for tcp-stream
+21/2/2022 -- 23:44:01 - <Perf> - using shared mpm ctx' for udp-packet
+21/2/2022 -- 23:44:01 - <Perf> - using shared mpm ctx' for other-ip
+21/2/2022 -- 23:44:01 - <Info> - 24571 signatures processed. 1348 are IP-only rules, 4100 are inspecting packet payload, 18919 inspect application layer, 108 are decoder event only
+21/2/2022 -- 23:44:01 - <Config> - building signature grouping structure, stage 1: preprocessing rules... complete
+21/2/2022 -- 23:44:01 - <Perf> - TCP toserver: 41 port groups, 39 unique SGH's, 2 copies
+21/2/2022 -- 23:44:01 - <Perf> - TCP toclient: 21 port groups, 21 unique SGH's, 0 copies
+21/2/2022 -- 23:44:01 - <Perf> - UDP toserver: 41 port groups, 38 unique SGH's, 3 copies
+21/2/2022 -- 23:44:01 - <Perf> - UDP toclient: 21 port groups, 17 unique SGH's, 4 copies
+21/2/2022 -- 23:44:01 - <Perf> - OTHER toserver: 254 proto groups, 3 unique SGH's, 251 copies
+21/2/2022 -- 23:44:01 - <Perf> - OTHER toclient: 254 proto groups, 0 unique SGH's, 254 copies
+21/2/2022 -- 23:44:13 - <Perf> - Unique rule groups: 118
+21/2/2022 -- 23:44:13 - <Perf> - Builtin MPM "toserver TCP packet": 27
+21/2/2022 -- 23:44:13 - <Perf> - Builtin MPM "toclient TCP packet": 20
+21/2/2022 -- 23:44:13 - <Perf> - Builtin MPM "toserver TCP stream": 31
+21/2/2022 -- 23:44:13 - <Perf> - Builtin MPM "toclient TCP stream": 21
+21/2/2022 -- 23:44:13 - <Perf> - Builtin MPM "toserver UDP packet": 38
+21/2/2022 -- 23:44:13 - <Perf> - Builtin MPM "toclient UDP packet": 16
+21/2/2022 -- 23:44:13 - <Perf> - Builtin MPM "other IP packet": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_uri (http)": 8
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_uri (http2)": 8
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_raw_uri (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_raw_uri (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_request_line (http)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_client_body (http)": 5
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_response_line (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_header (http)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_header (http)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_header (http2)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_header (http2)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_header_names (http)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_header_names (http)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_header_names (http2)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_header_names (http2)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_accept (http)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_accept (http2)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_accept_enc (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_accept_enc (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_accept_lang (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_accept_lang (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_referer (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_referer (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_connection (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_connection (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_content_len (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_content_len (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_content_len (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_content_len (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_content_type (http)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_content_type (http2)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_content_type (http)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_content_type (http2)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http.server (http)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http.server (http2)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http.location (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http.location (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_protocol (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_protocol (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_start (http)": 4
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_start (http)": 4
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_raw_header (http)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_raw_header (http)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_raw_header (http2)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_raw_header (http2)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_method (http)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_method (http2)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_cookie (http)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_cookie (http)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_cookie (http2)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_cookie (http2)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_user_agent (http)": 6
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_user_agent (http2)": 6
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_host (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_host (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_host (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_host (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_raw_host (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver http_raw_host (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_stat_code (http)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient http_stat_code (http2)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver dns_query (dns)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver dns_query (dns)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver tls.sni (tls)": 3
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver tls.sni (tls)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient tls.cert_issuer (tls)": 5
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient tls.cert_subject (tls)": 2
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient tls.cert_serial (tls)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient tls.cert_fingerprint (tls)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver ja3.hash (tls)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient ja3s.hash (tls)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver ssh.proto (ssh)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient ssh.proto (ssh)": 1
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver file_data (smtp)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient file_data (http)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver file_data (smb)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient file_data (smb)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toserver file_data (http2)": 7
+21/2/2022 -- 23:44:13 - <Perf> - AppLayer MPM "toclient file_data (http2)": 7
+21/2/2022 -- 23:44:23 - <Perf> - 8 cores, so using 8 threads
+21/2/2022 -- 23:44:23 - <Perf> - Using 8 AF_PACKET threads for interface enp12s0
+21/2/2022 -- 23:44:23 - <Config> - enp12s0: enabling zero copy mode by using data release call
+21/2/2022 -- 23:44:23 - <Info> - Going to use 8 thread(s)
+21/2/2022 -- 23:44:23 - <Perf> - 8 cores, so using 8 threads
+21/2/2022 -- 23:44:23 - <Perf> - Using 8 AF_PACKET threads for interface wlp2s0
+21/2/2022 -- 23:44:23 - <Perf> - wlp2s0: disabling sg offloading
+21/2/2022 -- 23:44:23 - <Warning> - [ERRCODE: SC_ERR_SYSCALL(50)] - Failure when trying to set feature via ioctl for 'wlp2s0': Operation not supported (95)
+21/2/2022 -- 23:44:23 - <Config> - wlp2s0: enabling zero copy mode by using data release call
+21/2/2022 -- 23:44:23 - <Info> - Going to use 8 thread(s)
+21/2/2022 -- 23:44:23 - <Perf> - 8 cores, so using 8 threads
+21/2/2022 -- 23:44:23 - <Perf> - Using 8 AF_PACKET threads for interface enp0s31f6
+21/2/2022 -- 23:44:23 - <Config> - enp0s31f6: enabling zero copy mode by using data release call
+21/2/2022 -- 23:44:23 - <Info> - Going to use 8 thread(s)
+21/2/2022 -- 23:44:23 - <Config> - using 1 flow manager threads
+21/2/2022 -- 23:44:23 - <Config> - using 1 flow recycler threads
+21/2/2022 -- 23:44:23 - <Info> - Running in live mode, activating unix socket
+21/2/2022 -- 23:44:23 - <Info> - Using unix socket file '/var/run/suricata/suricata-command.socket'
+21/2/2022 -- 23:44:23 - <Notice> - all 24 packet processing threads, 4 management threads initialized, engine started.
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Error> - [ERRCODE: SC_ERR_AFP_READ(191)] - Interface 'wlp2s0' is down
+21/2/2022 -- 23:44:24 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Couldn't init AF_PACKET socket, retrying soon
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Perf> - AF_PACKET RX Ring params: block_size=32768 block_nr=13 frame_size=1600 frame_nr=260
+21/2/2022 -- 23:44:24 - <Info> - All AFP capture threads are running.
+21/2/2022 -- 23:44:39 - <Notice> - rule reload starting
+21/2/2022 -- 23:44:39 - <Config> - pattern matchers: MPM: hs, SPM: hs
+21/2/2022 -- 23:44:39 - <Config> - grouping: tcp-whitelist (default) 53, 80, 139, 443, 445, 1433, 3306, 3389, 6666, 6667, 8080
+21/2/2022 -- 23:44:39 - <Config> - grouping: udp-whitelist (default) 53, 135, 5060
+21/2/2022 -- 23:44:39 - <Config> - prefilter engines: MPM
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_uri
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_uri
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_uri
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_uri
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_request_line
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_client_body
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_response_line
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_header_names
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_accept
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_accept
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_accept_enc
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_accept_enc
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_accept_lang
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_accept_lang
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_referer
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_referer
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_connection
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_connection
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_len
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_content_type
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http.server
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http.server
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http.location
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http.location
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_protocol
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_protocol
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_start
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_start
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_method
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_method
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_cookie
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file.magic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_user_agent
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_user_agent
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_host
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_host
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_host
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_raw_host
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_stat_msg
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_stat_code
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http_stat_code
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http2_header_name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http2_header_name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http2_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for http2_header
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for dns_query
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for dnp3_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for dnp3_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for tls.sni
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for tls.cert_issuer
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for tls.cert_subject
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for tls.cert_serial
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for tls.cert_fingerprint
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for tls.certs
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ja3.hash
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ja3.string
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ja3s.hash
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ja3s.string
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for dce_stub_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for smb_named_pipe
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for smb_share
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh.proto
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh.proto
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh_software
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh_software
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh.hassh
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh.hassh.server
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh.hassh.string
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ssh.hassh.server.string
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for file_data
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for krb5_cname
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for krb5_sname
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.method
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.uri
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.protocol
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.protocol
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.method
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.stat_msg
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.request_line
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for sip.response_line
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for rfb.name
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for snmp.community
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for snmp.community
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.connect.clientid
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.connect.username
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.connect.password
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.connect.willtopic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.connect.willmessage
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.publish.topic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.publish.message
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.subscribe.topic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for mqtt.unsubscribe.topic
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for icmpv4.hdr
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for tcp.hdr
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for udp.hdr
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for icmpv6.hdr
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ipv4.hdr
+21/2/2022 -- 23:44:39 - <Perf> - using shared mpm ctx' for ipv6.hdr
+21/2/2022 -- 23:44:39 - <Config> - IP reputation disabled
+21/2/2022 -- 23:44:39 - <Config> - Loading rule file: /var/lib/suricata/rules/suricata.rules
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:45 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:44:46 - <Info> - 1 rule files processed. 30230 rules successfully loaded, 0 rules failed
+21/2/2022 -- 23:44:46 - <Info> - Threshold config parsed: 0 rule(s) found
+21/2/2022 -- 23:44:46 - <Perf> - using shared mpm ctx' for tcp-packet
+21/2/2022 -- 23:44:46 - <Perf> - using shared mpm ctx' for tcp-stream
+21/2/2022 -- 23:44:46 - <Perf> - using shared mpm ctx' for udp-packet
+21/2/2022 -- 23:44:46 - <Perf> - using shared mpm ctx' for other-ip
+21/2/2022 -- 23:44:46 - <Info> - 30234 signatures processed. 1464 are IP-only rules, 4367 are inspecting packet payload, 24198 inspect application layer, 108 are decoder event only
+21/2/2022 -- 23:44:46 - <Config> - building signature grouping structure, stage 1: preprocessing rules... complete
+21/2/2022 -- 23:44:46 - <Perf> - TCP toserver: 41 port groups, 40 unique SGH's, 1 copies
+21/2/2022 -- 23:44:46 - <Perf> - TCP toclient: 21 port groups, 21 unique SGH's, 0 copies
+21/2/2022 -- 23:44:46 - <Perf> - UDP toserver: 41 port groups, 39 unique SGH's, 2 copies
+21/2/2022 -- 23:44:46 - <Perf> - UDP toclient: 21 port groups, 17 unique SGH's, 4 copies
+21/2/2022 -- 23:44:46 - <Perf> - OTHER toserver: 254 proto groups, 3 unique SGH's, 251 copies
+21/2/2022 -- 23:44:46 - <Perf> - OTHER toclient: 254 proto groups, 3 unique SGH's, 251 copies
+21/2/2022 -- 23:45:00 - <Perf> - Unique rule groups: 123
+21/2/2022 -- 23:45:00 - <Perf> - Builtin MPM "toserver TCP packet": 28
+21/2/2022 -- 23:45:00 - <Perf> - Builtin MPM "toclient TCP packet": 19
+21/2/2022 -- 23:45:00 - <Perf> - Builtin MPM "toserver TCP stream": 31
+21/2/2022 -- 23:45:00 - <Perf> - Builtin MPM "toclient TCP stream": 20
+21/2/2022 -- 23:45:00 - <Perf> - Builtin MPM "toserver UDP packet": 39
+21/2/2022 -- 23:45:00 - <Perf> - Builtin MPM "toclient UDP packet": 16
+21/2/2022 -- 23:45:00 - <Perf> - Builtin MPM "other IP packet": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_uri (http)": 8
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_uri (http2)": 8
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_raw_uri (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_raw_uri (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_request_line (http)": 4
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_client_body (http)": 5
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_response_line (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_header (http)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_header (http)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_header (http2)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_header (http2)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_header_names (http)": 5
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_header_names (http)": 5
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_header_names (http2)": 5
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_header_names (http2)": 5
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_accept (http)": 3
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_accept (http2)": 3
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_accept_enc (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_accept_enc (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_accept_lang (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_accept_lang (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_referer (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_referer (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_connection (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_connection (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_content_len (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_content_len (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_content_len (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_content_len (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_content_type (http)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_content_type (http2)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_content_type (http)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_content_type (http2)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http.server (http)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http.server (http2)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http.location (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http.location (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_protocol (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_protocol (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_start (http)": 6
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_start (http)": 6
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_raw_header (http)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_raw_header (http)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_raw_header (http2)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_raw_header (http2)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_method (http)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_method (http2)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_cookie (http)": 3
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_cookie (http)": 3
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_cookie (http2)": 3
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_cookie (http2)": 3
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_user_agent (http)": 6
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_user_agent (http2)": 6
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_host (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_host (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_host (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_host (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_raw_host (http)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver http_raw_host (http2)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_stat_code (http)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient http_stat_code (http2)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver dns_query (dns)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver dns_query (dns)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver tls.sni (tls)": 4
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver tls.sni (tls)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient tls.cert_issuer (tls)": 5
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient tls.cert_subject (tls)": 2
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient tls.cert_serial (tls)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient tls.cert_fingerprint (tls)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver ja3.hash (tls)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient ja3s.hash (tls)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver ssh.proto (ssh)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient ssh.proto (ssh)": 1
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver file_data (smtp)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient file_data (http)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver file_data (smb)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient file_data (smb)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toserver file_data (http2)": 7
+21/2/2022 -- 23:45:00 - <Perf> - AppLayer MPM "toclient file_data (http2)": 7
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:26 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:26 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:47 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:47 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:47 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:47 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:47 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:45:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:08 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:08 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:08 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:08 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:08 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:08 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:08 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:29 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:46:50 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:11 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:32 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:47:53 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:13 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:13 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:14 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:14 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:14 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:14 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:14 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:14 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:34 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:34 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:35 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:35 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:35 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:35 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:35 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:35 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:55 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:55 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:55 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:56 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:56 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:56 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:56 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:48:56 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:16 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:16 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:16 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:16 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:37 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:37 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:58 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:58 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:49:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:19 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:19 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:19 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:19 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:40 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:40 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:40 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:40 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:50:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:01 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:01 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:01 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:01 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:22 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:51:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:52:46 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:06 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:07 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:07 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:07 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:07 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:07 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:07 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:07 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:27 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:28 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:28 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:28 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:28 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:28 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:48 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:49 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:49 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:53:49 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:09 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:10 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:30 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:54:51 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:12 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:33 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:55:54 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:15 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:36 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:56 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:56 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:57 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:57 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:57 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:57 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:57 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:56:57 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:17 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:18 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:18 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:18 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:18 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:38 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:39 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:57:59 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:20 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:58:41 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:02 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:23 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:43 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:44 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:44 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:44 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:44 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+21/2/2022 -- 23:59:44 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:04 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:05 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:05 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:05 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:05 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:25 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
+22/2/2022 -- 00:00:26 - <Warning> - [ERRCODE: SC_ERR_AFP_CREATE(190)] - Can not open iface 'wlp2s0'
