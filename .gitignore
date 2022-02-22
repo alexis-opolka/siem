@@ -4,3 +4,4 @@ pcaps/*
 *.log
 ca.crt
 acert
+secrets/*
