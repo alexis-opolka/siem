@@ -10,6 +10,7 @@ TEMP_DIR=${PWD}/temp
 CA_FILE=${TEMP_DIR}/ca.crt
 SECRETS_DIR=${PWD}/secrets
 CONFIG_DIR=${PWD}/config
+CONFIG_FILEBEAT_DIR=${PWD}/config.filebeat
 PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ENV_FILE=${PWD}/.env
 
@@ -72,6 +73,7 @@ clean:
 	- docker volume prune -f
 	- sudo rm -f "${TEMP_DIR}"/*
 	- sudo rm -f "${CONFIG_DIR}"/*.yml
+	- sudo rm -f "${CONFIG_FILEBEAT_DIR}"/*.yml
 	- sudo rm -f "${CONFIG_DIR}"/pipeline/*.yml
 	- sudo rm -f ${SECRETS_DIR}/*
 	- rm -f ${PWD}/.env
@@ -87,6 +89,7 @@ cleansiem:
 	- docker system prune -f
 	- sudo rm -f config/kibana.yml
 	- sudo rm -f "${CONFIG_DIR}"/*.yml
+	- sudo rm -f "${CONFIG_FILEBEAT_DIR}"/*.yml
 	- sudo rm -f "${CONFIG_DIR}"/pipeline/*.yml
 	- sudo chown -R ${CURRENT_UID}.${CURRENT_GID} ${PWD}
 

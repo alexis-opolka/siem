@@ -57,6 +57,6 @@ index => "logstash-%{+YYYY.MM.dd}"
 user => "elastic"
 password => "ELASTIC_PASSWORD"
 ssl_certificate_verification => false
-cacert =>  "/etc/logstash/config/certs/ca/ca.crt"
+cacert =>  "/usr/share/logstash/config/ca.crt"
        }
 }

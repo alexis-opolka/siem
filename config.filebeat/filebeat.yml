@@ -17,7 +17,7 @@ filebeat.config:
 output.elasticsearch:
   hosts: ["https://es01:9200"]
   username: "elastic" #(si pas de login/mot de passe ne rien mettre)
-  password: "Honq17*6JjJRexRVxJKM" #(si pas de login/mot de passe ne rien mettre)
+  password: "rR9qtFPP55c+y_CTT=-U" #(si pas de login/mot de passe ne rien mettre)
 
 ...
 

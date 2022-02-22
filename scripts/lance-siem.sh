@@ -7,6 +7,7 @@ TEMP_DIR=$PARENT_DIR/temp
 CA_FILE=${TEMP_DIR}/ca.crt
 SECRETS_DIR=$PARENT_DIR/secrets
 CONFIG_DIR=$PARENT_DIR/config
+CONFIG_FILEBEAT_DIR=$PARENT_DIR/config.filebeat
 PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ETC_DIR=$PARENT_DIR/etc
 LOGS_DIR=$PARENT_DIR/logs
@@ -100,26 +101,31 @@ sed "s/ELASTIC_PASSWORD/${ELASTIC_PASSWORD}/g" ${TEMPLATE_DIR}/logstash.conf.tem
 sed -i 's/\r//g' ${CONFIG_DIR}/pipeline/logstash.conf
 
 
-docker run -d --rm --name logstash -e PUID=$(id -u)  -e PGID=$(id -g) --env ELASTIC_USERNAME=logstash_system --env ELASTIC_PASSWORD=${LOGSTASH_PASSWORD}   -e XPACK_MONITORING_ENABLED=false -it --rm --net=elasticsearch --volume='certs:/etc/logstash/config/certs' --volume="${LOGS_DIR}:/var/log/suricata" -v ${CONFIG_DIR}/pipeline/:/usr/share/logstash/pipeline/ logstash:8.0.0  
 
+docker run -d --rm --name logstash -e PUID=$(id -u)  -e PGID=$(id -g) --env ELASTIC_USERNAME=logstash_system --env ELASTIC_PASSWORD=${LOGSTASH_PASSWORD}   -e XPACK_MONITORING_ENABLED=false -it --rm --net=elasticsearch  --volume="${LOGS_DIR}:/var/log/suricata" -v${TEMP_DIR}/ca.crt:/usr/share/logstash/config/ca.crt -v ${CONFIG_DIR}/pipeline/:/usr/share/logstash/pipeline/ logstash:8.0.0  
+
+#docker cp ${TEMP_DIR}/ca.crt logstash:/usr/share/logstash/config/ca.crt
 
 ###################################################################
 echo "lancement de filebeats" 
 ###################################################################
 
-# ajout du pass pour filebeat.yml
-sudo sed "s/ELASTIC_PASSWORD/${ELASTIC_PASSWORD}/g" ${TEMPLATE_DIR}/filebeat.yml.template > ${CONFIG_DIR}/filebeat.yml
-sudo sed -i 's/\r//g' ${CONFIG_DIR}/filebeat.yml 
-sudo chown root.root ${CONFIG_DIR}/filebeat.yml 
-sudo chmod go-w ${CONFIG_DIR}/filebeat.yml
+# ajout du pass pour filebeat.yml on copie tel quel le template pour suricata
+sudo cp ${TEMPLATE_DIR}/suricata.yml.template ${CONFIG_FILEBEAT_DIR}/suricata.yml 
+sudo sed "s/ELASTIC_PASSWORD/${ELASTIC_PASSWORD}/g" ${TEMPLATE_DIR}/filebeat.yml.template > ${CONFIG_FILEBEAT_DIR}/filebeat.yml
+sudo sed -i 's/\r//g' ${CONFIG_FILEBEAT_DIR}/filebeat.yml 
+sudo chown root.root ${CONFIG_FILEBEAT_DIR}/*.yml 
+sudo chmod go-w ${CONFIG_FILEBEAT_DIR}/*.yml
 
 # d'abord setup
-docker run --rm --user=root --volume='certs:/usr/share/filebeats/config/certs'  --network=elasticsearch --volume="${CONFIG_DIR}/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume="${LOGS_DIR}:/var/log/suricata"  --env ELASTIC_USERNAME=beats_system --env ELASTIC_PASSWORD=${BEATS_PASSWORD}  docker.elastic.co/beats/filebeat:8.0.0 filebeat setup -e -strict.perms=false -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts="https://es01:9200" -E output.elasticsearch.ssl.certificate_authorities=/usr/share/filebeats/config/certs/ca/ca.crt
+docker run --rm --user=root --volume='certs:/usr/share/filebeats/config/certs'  --network=elasticsearch --volume="${CONFIG_FILEBEAT_DIR}/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume="${CONFIG_FILEBEAT_DIR}/filebeat.yml:/usr/share/filebeat/modules.d/suricata.yml:ro" --volume="${LOGS_DIR}:/var/log/suricata"  --env ELASTIC_USERNAME=beats_system --env ELASTIC_PASSWORD=${BEATS_PASSWORD}  docker.elastic.co/beats/filebeat:8.0.0 filebeat setup -e -strict.perms=false -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts="https://es01:9200" -E output.elasticsearch.ssl.certificate_authorities=/usr/share/filebeats/config/certs/ca/ca.crt
 
 # ensuite lancement en scrutation
-docker run --rm --user=root  -d --name filebeat  --volume='certs:/usr/share/filebeats/config/certs'  --network=elasticsearch --volume="${CONFIG_DIR}/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume="${LOGS_DIR}:/var/log/suricata" --env ELASTIC_USERNAME=beats_system --env ELASTIC_PASSWORD=${BEATS_PASSWORD}  docker.elastic.co/beats/filebeat:8.0.0 filebeat -e -strict.perms=false -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts="https://es01:9200" -E output.elasticsearch.ssl.certificate_authorities=/usr/share/filebeats/config/certs/ca/ca.crt
+docker run --rm --user=root  -d --name filebeat  --volume='certs:/usr/share/filebeats/config/certs'  --network=elasticsearch --volume="${CONFIG_FILEBEAT_DIR}/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume="${CONFIG_FILEBEAT_DIR}/filebeat.yml:/usr/share/filebeat/modules.d/suricata.yml:ro" --volume="${LOGS_DIR}:/var/log/suricata" --env ELASTIC_USERNAME=beats_system --env ELASTIC_PASSWORD=${BEATS_PASSWORD}  docker.elastic.co/beats/filebeat:8.0.0 filebeat -e -strict.perms=false -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts="https://es01:9200" -E output.elasticsearch.ssl.certificate_authorities=/usr/share/filebeats/config/certs/ca/ca.crt
 
-docker cp "${CONFIG_DIR}"/suricata.yml filebeat:/usr/share/filebeat/modules.d/suricata.yml
+# activation du module suricata
+
+docker cp "${CONFIG_FILEBEAT_DIR}"/suricata.yml filebeat:/usr/share/filebeat/modules.d/suricata.yml
 
 
 ###################################################################
