@@ -1,3 +1,6 @@
 logs/*
 pcaps/*
 *.pcap
+*.log
+ca.crt
+acert
