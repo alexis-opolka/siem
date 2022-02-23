@@ -11,6 +11,7 @@ CONFIG_FILEBEAT_DIR=$PARENT_DIR/config.filebeat
 PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ETC_DIR=$PARENT_DIR/etc
 LOGS_DIR=$PARENT_DIR/logs
+LIB_SURICATA_DIR=$PARENT_DIR/lib
 
 echo "TEMP_DIR $TEMP_DIR"
 echo "CA_FILE $CA_FILE"
@@ -41,7 +42,7 @@ docker run  -d --name suricata --env SURICATA_OPTIONS="${SURICATA_OPTIONS}" -e P
     --cap-add=net_admin --cap-add=net_raw --cap-add=sys_nice \
     -v ${LOGS_DIR}:/var/log/suricata \
     -v ${ETC_DIR}:/etc/suricata \
-    -v ${LIB_DIR}:/var/lib/suricata \
+    -v ${LIB_SURICATA_DIR}:/var/lib/suricata \
     jasonish/suricata:latest
 
 # Rajout de packages de bases dans l'image

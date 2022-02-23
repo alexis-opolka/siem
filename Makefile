@@ -46,7 +46,7 @@ help:
 	@echo "------------------------------------"
 	@echo "make pass pour afficher les users/passwords" 
 	@echo "------------------------------------"
-	@echo "make curlES pour tester elasticsearch
+	@echo "make curlES pour tester elasticsearch"
 	@echo "------------------------------------"
 	@echo "régénérés après chaque make es" 
 	@echo "ES https://localhost:9200"
