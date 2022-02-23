@@ -2,6 +2,7 @@ logs/*
 pcaps/*
 *.pcap
 *.log
+*.zip
 ca.crt
 acert
 secrets/*
