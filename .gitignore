@@ -6,3 +6,6 @@ pcaps/*
 ca.crt
 acert
 secrets/*
+lib/update/cache/*
+lib/rules/suricata.rules
+./config
