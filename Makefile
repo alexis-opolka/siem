@@ -91,7 +91,21 @@ cleansiem:
 	- sudo rm -f "${CONFIG_DIR}"/*.yml
 	- sudo rm -f "${CONFIG_FILEBEAT_DIR}"/*.yml
 	- sudo rm -f "${CONFIG_DIR}"/pipeline/*.yml
-	- sudo chown -R ${CURRENT_UID}.${CURRENT_GID} ${PWD}
+stop:
+	- docker stop suricata
+	- docker stop kibana
+	- docker stop logstash
+	- docker stop evebox
+	- docker stop filebeat
+	- docker stop zeek
+#start:
+#	- docker start suricata
+#	- docker start kibana
+#	- docker start logstash
+#	- docker start evebox
+#	- docker start filebeat
+#	- docker start zeek
+
 
 pass: 
 	${SCRIPTS_DIR}/print_password.sh
