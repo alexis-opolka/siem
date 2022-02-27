@@ -110,6 +110,7 @@ docker run --rm -d  --name es01 \
 --env xpack.license.self_generated.type=basic \
 --env xpack.security.enrollment.enabled=false \
 --env ES_JAVA_OPTS="-Xms2048m -Xmx2048m" \
+--env ingest.geoip.downloader.enabled=false \
 --volume='elasticdata:/usr/share/elasticsearch/data' \
 --volume='elasticonfig:/usr/share/elasticsearch/config' \
 --volume='certs:/usr/share/elasticsearch/config/certs' \

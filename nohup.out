@@ -24,3 +24,34 @@ If your state or actions are very large, you may want to disable the middleware 
 It is disabled in production builds, so you don't need to worry about that.
 (node:44227) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
 (node:44227) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
+14:39:23.579 › app paths: getAppPath=/opt/Brim/resources/app.asar userData=/home/pouchou/.config/Brim logs=/home/pouchou/.config/Brim/logs
+14:39:23.724 › migrations: currentVersion=202111111659 pending=0
+14:39:23.741 › zed core log /home/pouchou/.config/Brim/logs/zlake.log
+14:39:23.744 › spawning zed lake serve: /opt/Brim/resources/app.asar.unpacked/zdeps/zed lake serve -l localhost:9867 -R /home/pouchou/.config/Brim/data/lake -log.level=info -log.filemode=rotate -log.path /home/pouchou/.config/Brim/logs/zlake.log -brimfd=3
+(node:29022) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
+(node:29022) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
+init: 1761.559ms
+14:39:54.140 › GotError: certificate has expired
+    at onError (/opt/Brim/resources/app.asar/node_modules/got/dist/source/request-as-event-emitter.js:140:29)
+    at handleRequest (/opt/Brim/resources/app.asar/node_modules/got/dist/source/request-as-event-emitter.js:173:17)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at TLSSocket.onConnectSecure (_tls_wrap.js:1501:34)
+    at TLSSocket.emit (events.js:315:20)
+    at TLSSocket._finishInit (_tls_wrap.js:936:8)
+    at TLSWrap.ssl.onhandshakedone (_tls_wrap.js:710:12)
+15:23:48.330 › zed lake has shutdown
+15:42:19.912 › app paths: getAppPath=/opt/Brim/resources/app.asar userData=/home/pouchou/.config/Brim logs=/home/pouchou/.config/Brim/logs
+15:42:20.034 › migrations: currentVersion=202111111659 pending=0
+15:42:20.050 › zed core log /home/pouchou/.config/Brim/logs/zlake.log
+15:42:20.053 › spawning zed lake serve: /opt/Brim/resources/app.asar.unpacked/zdeps/zed lake serve -l localhost:9867 -R /home/pouchou/.config/Brim/data/lake -log.level=info -log.filemode=rotate -log.path /home/pouchou/.config/Brim/logs/zlake.log -brimfd=3
+(node:34175) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
+(node:34175) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
+init: 1548.775ms
+15:42:50.688 › GotError: certificate has expired
+    at onError (/opt/Brim/resources/app.asar/node_modules/got/dist/source/request-as-event-emitter.js:140:29)
+    at handleRequest (/opt/Brim/resources/app.asar/node_modules/got/dist/source/request-as-event-emitter.js:173:17)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at TLSSocket.onConnectSecure (_tls_wrap.js:1501:34)
+    at TLSSocket.emit (events.js:315:20)
+    at TLSSocket._finishInit (_tls_wrap.js:936:8)
+    at TLSWrap.ssl.onhandshakedone (_tls_wrap.js:710:12)
