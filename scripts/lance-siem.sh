@@ -133,7 +133,7 @@ docker cp "${CONFIG_FILEBEAT_DIR}"/suricata.yml filebeat:/usr/share/filebeat/mod
 echo "lancement de zeek" 
 ###################################################################
 docker run -d --rm  --name zeek  --net=elasticsearch --volumes-from=suricata registry.iutbeziers.fr/bro:4.2.0 /bin/bash -c 'while true; do sleep 100; done'
-docker exec -it zeek   /bin/bash -c 'apt update && apt -y install python3 cmake build-essential python3-pip git curl wget libpcap-dev && pip3 install GitPython semantic-version'
+docker exec -it zeek   /bin/bash -c 'apt update && apt -y install python3 vim cmake build-essential python3-pip git curl wget libpcap-dev && pip3 install GitPython semantic-version'
 # Optionnel long à compiler
 #docker exec -it zeek   /bin/bash -c 'wget https://github.com/zeek/spicy/releases/download/v1.3.0/spicy_linux_ubuntu20.deb && dpkg -i spicy_linux_ubuntu20.deb'
 #docker exec -it zeek   /bin/bash -c 'export PATH=/opt/spicy/bin:$PATH;zkg install --force zeek/spicy-plugin && zeek -N _Zeek::Spicy'
