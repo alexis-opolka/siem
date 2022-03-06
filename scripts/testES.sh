@@ -1,5 +1,14 @@
 #! /bin/bash
-. $(pwd)/secrets/passwords.txt
+
+SECRET_FILE=$(pwd)/secrets/passwords.txt
 TEMP_DIR=$(pwd)/temp
 CA_FILE=${TEMP_DIR}/ca.crt
-curl --cacert $CA_FILE  --url https://localhost:9200 -K- <<< "--user elastic:$ELASTIC_PASSWORD"
+if test -f "${SECRET_FILE}"
+then
+    . $(pwd)/secrets/passwords.txt
+    echo $ELASTIC_PASSWORD
+    curl --cacert $CA_FILE  --url https://localhost:9200 -K- <<< "--user elastic:$ELASTIC_PASSWORD"
+else
+    curl --insecure --url https://localhost:9200 -K- <<< "--user elastic:changeme"
+fi
+CA_FILE=${TEMP_DIR}/ca.crt

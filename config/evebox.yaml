@@ -54,7 +54,7 @@ database:
     #keyword: ""
 
     username: elastic
-    password: CGGagU_ObZjLErRIC0B_ 
+    password: ERROR: Failed to reset password for the [elastic] user 
 
   postgresql:
 
