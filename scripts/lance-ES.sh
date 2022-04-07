@@ -34,7 +34,14 @@ ENV_FILE=$(pwd)/.env
 
 cp ${TEMPLATE_DIR}/env.template "${ENV_FILE}"
 
+if [ -d "$SECRETS_DIR" ]; then
+   mkdir -p $SECRETS_DIR
+fi
 
+
+if [ -d "$TEMP_DIR" ]; then
+   mkdir -p $TEMP_DIR
+fi
 
 ###############################################################
 # ce premier container éphémère crée les certificats auto-signés
