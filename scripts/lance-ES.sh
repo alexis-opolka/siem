@@ -43,6 +43,7 @@ if [ -d "$TEMP_DIR" ]; then
    mkdir -p $TEMP_DIR
 fi
 
+
 ###############################################################
 # ce premier container éphémère crée les certificats auto-signés
 # on prend un mot de passe par default qui sera changé ensuite
