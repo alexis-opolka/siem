@@ -24,7 +24,7 @@ echo "PASSWORDS_FILE $PASSWORDS_FILE"
 
 #CERTS_DIR=/usr/share/elasticsearch/config/certificates
 
-if [ -d "$CONFIG_FILEBEAT_DIR" ]; then
+if [[ ! -d "$CONFIG_FILEBEAT_DIR" ]]; then
    mkdir -p $CONFIG_FILEBEAT_DIR
 fi
 
