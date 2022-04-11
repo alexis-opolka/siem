@@ -34,12 +34,12 @@ ENV_FILE=$(pwd)/.env
 
 cp ${TEMPLATE_DIR}/env.template "${ENV_FILE}"
 
-if [ -d "$SECRETS_DIR" ]; then
+if [[ ! -d "$SECRETS_DIR" ]]; then
    mkdir -p $SECRETS_DIR
 fi
 
 
-if [ -d "$TEMP_DIR" ]; then
+if [[ ! -d "$TEMP_DIR" ]]; then
    mkdir -p $TEMP_DIR
 fi
 
