@@ -41,7 +41,9 @@ database:
 
   elasticsearch:
     url: https://es01:9200
-    index: logstash*
+    #index: logstash*
+    index: filebeat
+    ecs: true
     disable-certificate-check: true
 
     # The keyword to use for terms query. EveBox will do its best to
@@ -54,7 +56,7 @@ database:
     #keyword: ""
 
     username: elastic
-    password: GT+Ftsm3OTPTxIEOr8VP 
+    password: JfyR0xbCc4s+plUh1elv 
 
   postgresql:
 

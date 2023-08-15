@@ -49,7 +49,7 @@ fi
 # on prend un mot de passe par default qui sera changé ensuite
 ###############################################################
 
-docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=changeme --volume='certs:/usr/share/elasticsearch/config/certs' --user root docker.elastic.co/elasticsearch/elasticsearch:8.0.0  bash -c 'mkdir -p /usr/share/elasticsearch/config/certs/ca;
+docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=changeme --volume='certs:/usr/share/elasticsearch/config/certs' --user root docker.elastic.co/elasticsearch/elasticsearch:8.9.0  bash -c 'mkdir -p /usr/share/elasticsearch/config/certs/ca;
          if [ x${ELASTIC_PASSWORD} == x ]; then
           echo "Set the ELASTIC_PASSWORD environment variable in the .env file";
           exit 1;
@@ -60,7 +60,6 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
         if [ ! -f certs/ca.zip ]; then
           echo "Creating CA";
           bin/elasticsearch-certutil ca --silent --pem -out config/certs/ca.zip;
-	  pe
           unzip config/certs/ca.zip -d config/certs;
         fi;
         if [ ! -f certs/certs.zip ]; then
@@ -123,7 +122,7 @@ docker run --rm -d  --name es01 \
 --volume='elasticonfig:/usr/share/elasticsearch/config' \
 --volume='certs:/usr/share/elasticsearch/config/certs' \
 --publish 127.0.0.1:9200:9200 --publish 127.0.0.1:9300:9300 --net elasticsearch \
-docker.elastic.co/elasticsearch/elasticsearch:8.0.0
+docker.elastic.co/elasticsearch/elasticsearch:8.9.0
 
 # On récupére la CA pour faire des curl avec la CA générée par le container éphémère
 
