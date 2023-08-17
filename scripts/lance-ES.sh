@@ -73,7 +73,6 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
           "    dns:\n"\
           "      - es01\n"\
           "      - localhost\n"\
-          "      - 192.168.1.111\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
           "  - name: es02\n"\

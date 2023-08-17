@@ -25,7 +25,9 @@ export CURRENT_GID
 .DEFAULT_GOAL := help
 
 es:
+	${SCRIPTS_DIR}/pre-ES.sh
 	${SCRIPTS_DIR}/lance-ES.sh
+
 siem:
 	${SCRIPTS_DIR}/lance-siem.sh
 
@@ -78,6 +80,9 @@ clean:
 	- sudo rm -f ${SECRETS_DIR}/*
 	- rm -f ${PWD}/.env
 	- sudo chown -R ${CURRENT_UID}.${CURRENT_GID} ${PWD}
+	- rm -f ${SCRIPTS_DIR}/lance-ES.sh
+	- git checkout ${SCRIPTS_DIR}/lance-ES.sh
+
 
 cleansiem:
 	- docker stop suricata && docker rm suricata
