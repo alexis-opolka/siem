@@ -12,6 +12,7 @@ PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ETC_DIR=$PARENT_DIR/etc
 LOGS_DIR=$PARENT_DIR/logs
 LIB_SURICATA_DIR=$PARENT_DIR/lib
+IP_HOST=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
 
 echo "TEMP_DIR $TEMP_DIR"
 echo "CA_FILE $CA_FILE"
@@ -92,10 +93,25 @@ echo "elasticsearch.password: ${KIBANA_PASSWORD}" >> ${KIBANA_CONFIG_FILE}
 sed -i 's/\r//g' ${KIBANA_CONFIG_FILE}
 
 
-docker run   -d --name kibana --network=elasticsearch --volume='certs:/usr/share/kibana/config/certs' -v ${CONFIG_DIR}:/usr/share/kibana/config --publish=127.0.0.1:5601:5601 --env ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/kibana/config/certs/ca/ca.crt --env ELASTICSEARCH_HOSTS='https://es01:9200' --env ELASTICSEARCH_USERNAME=kibana_system  docker.elastic.co/kibana/kibana:8.9.0
+docker run   -d --name kibana --network=elasticsearch --volume='certs:/usr/share/kibana/config/certs' -v ${CONFIG_DIR}:/usr/share/kibana/config --publish=${IP_HOST}:8220:8220 --publish=${IP_HOST}:5601:5601 --env ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/kibana/config/certs/ca/ca.crt --env ELASTICSEARCH_HOSTS='https://es01:9200' --env ELASTICSEARCH_USERNAME=kibana_system  docker.elastic.co/kibana/kibana:8.9.0
+
+#docker run -d \
+#        --name kibana \
+#	--network=elasticsearch \
+#	--mount 'type=volume,source=certs,target=/usr/share/kibana/config/certs' \
+#	-v ${CONFIG_DIR}:/usr/share/kibana/config \
+#	--publish=0.0.0.0:5601:5601 \
+#       	--env ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/kibana/config/certs/ca/ca.crt \
+#	--env ELASTICSEARCH_HOSTS='https://es01:9200' \
+#       	--env ELASTICSEARCH_USERNAME=kibana_system \
+#        --env SERVER_SSL_ENABLED=true \
+#        --env SERVER_SSL_KEY==/usr/share/kibana/config/certs/kibana/kibana.key \
+#	--env SERVER_SSL_CERTIFICATE=/usr/share/kibana/config/certs/kibana/kibana.crt \
+#	--env SERVER_SSL_CERTIFICATEAUTHORITIES=/usr/share/kibana/config/certs/ca/ca.crt \
+#       	  docker.elastic.co/kibana/kibana:8.9.0
 
 echo "Attente Kibana up...";
-until curl -s -XGET http://localhost:5601/status -I 2>&1 | grep -qv "init"; do sleep 10; done;
+until curl -k -s -XGET https://$IP_HOST:5601/status -I 2>&1 | grep -qv "init"; do sleep 10; done;
 sleep 60
 
 ###################################################################

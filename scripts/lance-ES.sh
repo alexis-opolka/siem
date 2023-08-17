@@ -6,6 +6,7 @@ if (sudo -vn && sudo -ln) 2>&1 |grep 'ne pas' > /dev/null; then
 fi
 
 
+
 # nettoyage
 make clean
 
@@ -24,6 +25,8 @@ SECRETS_DIR=$(pwd)/secrets
 CONFIG_DIR=$(pwd)/config
 PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ENV_FILE=$(pwd)/.env
+IP_HOST=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
+
 
 #CERTS_DIR=/usr/share/elasticsearch/config/certificates
 
@@ -70,6 +73,7 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
           "    dns:\n"\
           "      - es01\n"\
           "      - localhost\n"\
+          "      - 192.168.1.111\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
           "  - name: es02\n"\
@@ -81,6 +85,12 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
           "  - name: es03\n"\
           "    dns:\n"\
           "      - es03\n"\
+          "      - localhost\n"\
+          "    ip:\n"\
+          "      - 127.0.0.1\n"\
+          "  - name: kibana\n"\
+          "    dns:\n"\
+          "      - kibana\n"\
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
@@ -121,7 +131,7 @@ docker run --rm -d  --name es01 \
 --volume='elasticdata:/usr/share/elasticsearch/data' \
 --volume='elasticonfig:/usr/share/elasticsearch/config' \
 --volume='certs:/usr/share/elasticsearch/config/certs' \
---publish 127.0.0.1:9200:9200 --publish 127.0.0.1:9300:9300 --net elasticsearch \
+--publish 127.0.0.1:9200:9200 --publish 127.0.0.1:9300:9300 --publish ${IP_HOST}:9200:9200 --net elasticsearch \
 docker.elastic.co/elasticsearch/elasticsearch:8.9.0
 
 # On récupére la CA pour faire des curl avec la CA générée par le container éphémère
