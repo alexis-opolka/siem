@@ -25,11 +25,13 @@ export CURRENT_GID
 .DEFAULT_GOAL := help
 
 es:
-	${SCRIPTS_DIR}/pre-ES.sh
 	${SCRIPTS_DIR}/lance-ES.sh
 
 siem:
 	${SCRIPTS_DIR}/lance-siem.sh
+
+fleet:
+	${SCRIPTS_DIR}/lance-fleet.sh
 
 help:
 	@echo "---------------HELP-----------------"
@@ -50,6 +52,8 @@ help:
 	@echo "------------------------------------"
 	@echo "make curlES pour tester elasticsearch"
 	@echo "------------------------------------"
+	@echo "make fleet pour installer un server fleet"
+	@echo "------------------------------------"
 	@echo "régénérés après chaque make es" 
 	@echo "ES https://localhost:9200"
 	@echo "Kibana http://localhost:5601"
@@ -67,6 +71,7 @@ clean:
 	- docker stop evebox && docker rm evebox
 	- docker stop filebeat && docker rm filebeat
 	- docker stop zeek && docker rm zeek
+	- docker stop fleet && docker rm fleet
 	- docker network rm elasticsearch
 	- docker volume rm elasticdata
 	- docker volume rm elasticonfig
@@ -80,8 +85,6 @@ clean:
 	- sudo rm -f ${SECRETS_DIR}/*
 	- rm -f ${PWD}/.env
 	- sudo chown -R ${CURRENT_UID}.${CURRENT_GID} ${PWD}
-	- rm -f ${SCRIPTS_DIR}/lance-ES.sh
-	- git checkout ${SCRIPTS_DIR}/lance-ES.sh
 
 
 cleansiem:
@@ -91,6 +94,7 @@ cleansiem:
 	- docker stop evebox && docker rm evebox
 	- docker stop filebeat && docker rm filebeat
 	- docker stop zeek && docker rm zeek
+	- docker stop fleet && docker rm fleet
 	- docker system prune -f
 	- sudo rm -f config/kibana.yml
 	- sudo rm -f "${CONFIG_DIR}"/*.yml

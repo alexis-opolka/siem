@@ -93,6 +93,12 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
+          "  - name: fleet\n"\
+          "    dns:\n"\
+          "      - fleet\n"\
+          "      - localhost\n"\
+          "    ip:\n"\
+          "      - 127.0.0.1\n"\
           > config/certs/instances.yml;
           bin/elasticsearch-certutil cert --silent --pem -out config/certs/certs.zip --in config/certs/instances.yml --ca-cert config/certs/ca/ca.crt --ca-key config/certs/ca/ca.key;
           unzip config/certs/certs.zip -d config/certs;
@@ -123,6 +129,7 @@ docker run --rm -d  --name es01 \
 --env xpack.security.transport.ssl.certificate=/usr/share/elasticsearch/config/certs/es01/es01.crt \
 --env xpack.security.transport.ssl.certificate_authorities=/usr/share/elasticsearch/config/certs/ca/ca.crt \
 --env xpack.security.transport.ssl.verification_mode=certificate \
+--env xpack.security.authc.api_key.enabled=true \
 --env xpack.license.self_generated.type=basic \
 --env xpack.security.enrollment.enabled=false \
 --env ES_JAVA_OPTS="-Xms2048m -Xmx2048m" \
