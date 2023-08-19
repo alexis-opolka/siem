@@ -54,14 +54,24 @@ help:
 	@echo "------------------------------------"
 	@echo "make fleet pour installer un server fleet"
 	@echo "------------------------------------"
+	@echo "make fgprint pour afficher le fingerprint de la CA"
+	@echo "------------------------------------"
+	@echo "make prca  pour afficher la config ca pour fleet"
+	@echo "------------------------------------"
 	@echo "régénérés après chaque make es" 
-	@echo "ES https://localhost:9200"
-	@echo "Kibana http://localhost:5601"
+	@echo "ES https://IP_HOTE:9200"
+	@echo "Kibana https://IP_HOTE:5601"
 	@echo "EveBox http://localhost:5636"
 	@echo "------------------------------------"
 
 curlES:
 	- ${SCRIPTS_DIR}/testES.sh
+
+fgprint:
+	- ${SCRIPTS_DIR}/getFingerprint.sh
+
+prca:
+	- ${SCRIPTS_DIR}/printcrt.sh
 
 clean:
 	- docker stop suricata && docker rm suricata
