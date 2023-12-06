@@ -113,7 +113,7 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
 
 # création de l'instance es01 avec le volume contenant les certificats précédents 
 
-docker run --rm -d  --name es01 \
+docker run -d  --name es01 \
 --env cluster.name=${CLUSTER_NAME}  \
 --env discovery.type=single-node \
 --env ELASTIC_PASSWORD=changeme \
@@ -132,6 +132,10 @@ docker run --rm -d  --name es01 \
 --env xpack.security.authc.api_key.enabled=true \
 --env xpack.license.self_generated.type=basic \
 --env xpack.security.enrollment.enabled=false \
+--env cluster.routing.allocation.disk.watermark.low="30mb" \
+--env cluster.routing.allocation.disk.watermark.high="20mb" \
+--env cluster.routing.allocation.disk.watermark.flood_stage="10mb" \
+--env cluster.info.update.interval="1m" \
 --env ES_JAVA_OPTS="-Xms2048m -Xmx2048m" \
 --env ingest.geoip.downloader.enabled=false \
 --volume='elasticdata:/usr/share/elasticsearch/data' \
