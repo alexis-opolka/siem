@@ -23,6 +23,7 @@ TEMP_DIR=$(pwd)/temp
 CA_FILE=${TEMP_DIR}/ca.crt
 SECRETS_DIR=$(pwd)/secrets
 CONFIG_DIR=$(pwd)/config
+HOST_CA_DIR=/etc/ca-certificates/elastic
 PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ENV_FILE=$(pwd)/.env
 IP_HOST=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
@@ -47,6 +48,10 @@ if [[ ! -d "$TEMP_DIR" ]]; then
    mkdir -p $TEMP_DIR
 fi
 
+# Création du répertoire des ca et enregistrement ajouté
+if [[ ! -d "$HOST_CA_DIR" ]]; then
+   sudo mkdir -p $HOST_CA_DIR
+fi
 
 ###############################################################
 # ce premier container éphémère crée les certificats auto-signés
