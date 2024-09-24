@@ -53,7 +53,7 @@ fi
 # on prend un mot de passe par default qui sera changé ensuite
 ###############################################################
 
-docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=changeme --volume='certs:/usr/share/elasticsearch/config/certs' --user root docker.elastic.co/elasticsearch/elasticsearch:$VERSION  bash -c 'mkdir -p /usr/share/elasticsearch/config/certs/ca;
+docker run --rm -it --env IP_HOST=${IP_HOST} --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=changeme --volume='certs:/usr/share/elasticsearch/config/certs' --user root docker.elastic.co/elasticsearch/elasticsearch:$VERSION  bash -c 'mkdir -p /usr/share/elasticsearch/config/certs/ca;
          if [ x${ELASTIC_PASSWORD} == x ]; then
           echo "Set the ELASTIC_PASSWORD environment variable in the .env file";
           exit 1;
@@ -100,6 +100,7 @@ docker run --rm -it --env ELASTIC_PASSWORD=changeme --env KIBANA_PASSWORD=change
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
+	  "      - $IP_HOST\n"\
           > config/certs/instances.yml;
           bin/elasticsearch-certutil cert --silent --pem -out config/certs/certs.zip --in config/certs/instances.yml --ca-cert config/certs/ca/ca.crt --ca-key config/certs/ca/ca.key;
           unzip config/certs/certs.zip -d config/certs;
