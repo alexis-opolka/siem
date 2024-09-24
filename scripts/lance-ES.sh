@@ -76,16 +76,19 @@ docker run --rm -it --env IP_HOST=${IP_HOST} --env ELASTIC_PASSWORD=changeme --e
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
+	  "      - $IP_HOST\n"\
           "  - name: es02\n"\
           "    dns:\n"\
           "      - es02\n"\
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
+	  "      - $IP_HOST\n"\
           "  - name: es03\n"\
           "    dns:\n"\
           "      - es03\n"\
           "      - localhost\n"\
+	  "      - $IP_HOST\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
           "  - name: kibana\n"\
@@ -96,7 +99,6 @@ docker run --rm -it --env IP_HOST=${IP_HOST} --env ELASTIC_PASSWORD=changeme --e
           "      - 127.0.0.1\n"\
           "  - name: fleet\n"\
           "    dns:\n"\
-          "      - fleet\n"\
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
