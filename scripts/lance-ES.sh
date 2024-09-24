@@ -23,7 +23,8 @@ TEMP_DIR=$(pwd)/temp
 CA_FILE=${TEMP_DIR}/ca.crt
 SECRETS_DIR=$(pwd)/secrets
 CONFIG_DIR=$(pwd)/config
-HOST_CA_DIR=/etc/ca-certificates/elastic
+HOST_CA_DIR=/usr/share/ca-certificates/elastic
+HOST_CA_CONF=/etc/ca-certificates.conf
 PASSWORDS_FILE=${SECRETS_DIR}/passwords.txt
 ENV_FILE=$(pwd)/.env
 IP_HOST=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
@@ -52,6 +53,8 @@ fi
 if [[ ! -d "$HOST_CA_DIR" ]]; then
    sudo mkdir -p $HOST_CA_DIR
 fi
+
+echo "elastic/ca/crt" >> $HOST_CA_CONF
 
 ###############################################################
 # ce premier container éphémère crée les certificats auto-signés
@@ -157,6 +160,9 @@ docker.elastic.co/elasticsearch/elasticsearch:$VERSION
 
 echo "${CA_FILE}"
 docker cp es01:/usr/share/elasticsearch/config/certs/ca/ca.crt "${CA_FILE}"
+
+### On envoie le CA dans le répertoire des CA du host
+sudo cp "${CA_FILE}" "${HOST_CA_DIR}/"
 
 # ES met un peu de temps à être accessible
 echo "Attente ES up...";
